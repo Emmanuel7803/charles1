@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centre St. Francois Coll | Kigali</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            DEFAULT: '#003a6c', // Navy Blue
+                            dark: '#002a4d', 
+                        },
+                        secondary: {
+                            DEFAULT: '#2e7d32', // Dark Green
+                            hover: '#1b5e20',
+                        },
+                        highlight: {
+                            DEFAULT: '#81c784', // Light Green
+                            dim: '#4caf50',
+                        },
+                        background: {
+                            DEFAULT: '#e8f5e9', // Very Light Green/Off-White
+                            dim: '#c8e6c9',
+                        },
+                        charcoal: {
+                            DEFAULT: '#2c2c2c',
+                            light: '#4a4a4a',
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Work Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            /* Using Front.jpg as main background */
+            background-image: url('images/Front.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+        }
+
+        .fade-in {
+            animation: fadeIn 1s ease-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #e8f5e9; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #003a6c; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #2e7d32; 
+        }
+    </style>
+</head>
+<body class="text-charcoal font-sans antialiased">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-primary border-b border-primary-dark z-50 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-24">
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="w-12 h-12 bg-white text-primary flex items-center justify-center rounded-lg group-hover:bg-secondary group-hover:text-white transition-colors shadow-md">
+                        <span class="font-serif font-bold text-2xl">SF</span>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="font-serif font-bold text-lg tracking-tight text-white leading-tight">Centre St. Francois Coll</span>
+                        <span class="text-[10px] uppercase tracking-wider text-highlight font-medium">Sisters Dominican of Anunciata</span>
+                    </div>
+                </a>
+
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#rooms" class="text-background hover:text-highlight font-medium transition-colors">Rooms</a>
+                    <a href="#facilities" class="text-background hover:text-highlight font-medium transition-colors">Facilities</a>
+                    <a href="#services" class="text-background hover:text-highlight font-medium transition-colors">Services</a>
+                    <a href="#gallery" class="text-background hover:text-highlight font-medium transition-colors">Gallery</a>
+                    <a href="#contact" class="text-background hover:text-highlight font-medium transition-colors">Contact</a>
+                </div>
+
+                <div class="md:hidden">
+                    <button onclick="toggleMobileMenu()" class="text-white hover:text-highlight p-2 focus:outline-none transition-colors">
+                        <i data-lucide="menu" class="w-8 h-8"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <div id="mobile-menu" class="hidden md:hidden bg-primary border-t border-primary-dark absolute w-full shadow-2xl h-screen overflow-y-auto">
+            <div class="px-4 pt-4 pb-20 space-y-2">
+                <a href="#rooms" onclick="toggleMobileMenu()" class="block px-4 py-4 text-lg text-background border-b border-primary-dark hover:bg-primary-dark hover:text-highlight font-medium">Rooms</a>
+                <a href="#facilities" onclick="toggleMobileMenu()" class="block px-4 py-4 text-lg text-background border-b border-primary-dark hover:bg-primary-dark hover:text-highlight font-medium">Facilities</a>
+                <a href="#services" onclick="toggleMobileMenu()" class="block px-4 py-4 text-lg text-background border-b border-primary-dark hover:bg-primary-dark hover:text-highlight font-medium">Services</a>
+                <a href="#gallery" onclick="toggleMobileMenu()" class="block px-4 py-4 text-lg text-background border-b border-primary-dark hover:bg-primary-dark hover:text-highlight font-medium">Gallery</a>
+                <a href="#contact" onclick="toggleMobileMenu()" class="block px-4 py-4 text-lg text-background border-b border-primary-dark hover:bg-primary-dark hover:text-highlight font-medium">Contact Us</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative min-h-screen flex items-center pt-24 overflow-hidden bg-background/90 backdrop-blur-sm">
+        <div class="absolute right-0 top-0 w-2/3 h-full bg-white/40 rounded-l-[150px] opacity-60"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+            <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+                <div class="space-y-6 lg:space-y-8 fade-in pt-6 lg:pt-0">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full text-primary text-xs md:text-sm font-semibold shadow-sm border border-secondary/30">
+                        <i data-lucide="map-pin" class="w-4 h-4 text-secondary"></i>
+                        <span>Kinyinya Sector, Kagugu Coll, Kigali</span>
+                    </div>
+                    
+                    <h1 class="text-4xl lg:text-6xl font-serif font-bold text-primary leading-[1.1]">
+                        A Sanctuary of Peace <br>
+                        <span class="text-charcoal italic">on the Mountain View</span>
+                    </h1>
+                    
+                    <p class="text-lg lg:text-xl text-charcoal max-w-lg leading-relaxed">
+                        Managed by the Sisters Dominican of Anunciata. A place for rest, reflection, and community in the heart of Gasabo District.
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4 pt-2 lg:pt-4">
+                        <a href="#rooms" class="inline-flex justify-center items-center gap-2 bg-secondary text-white px-8 py-4 rounded-lg text-lg font-medium hover:bg-secondary-hover transition-all shadow-lg">
+                            View Rooms
+                            <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#contact" class="inline-flex justify-center items-center gap-2 bg-transparent text-primary border-2 border-primary px-8 py-4 rounded-lg text-lg font-medium hover:bg-primary hover:text-white transition-all">
+                            Contact Us
+                        </a>
+                    </div>
+                    
+                    <div class="flex flex-wrap gap-4 lg:gap-8 pt-6 lg:pt-8 text-charcoal text-sm font-medium border-t border-charcoal/10 mt-6 lg:mt-8">
+                        <div class="flex items-center gap-2"><i data-lucide="church" class="w-5 h-5 text-primary"></i> Chapel Access</div>
+                        <div class="flex items-center gap-2"><i data-lucide="wifi" class="w-5 h-5 text-primary"></i> Free Wi-Fi</div>
+                        <div class="flex items-center gap-2"><i data-lucide="shield-check" class="w-5 h-5 text-primary"></i> 24h Security</div>
+                    </div>
+                </div>
+
+                <div class="relative h-64 lg:h-[550px] w-full block fade-in mt-8 lg:mt-0" style="animation-delay: 0.2s;">
+                    <div class="absolute inset-0 bg-white rounded-2xl overflow-hidden shadow-2xl border-4 border-white lg:rotate-2 hover:rotate-0 transition-transform duration-500 ring-1 ring-highlight/50 group">
+                         <div class="w-full h-full relative">
+                             <!-- Using Front.jpg -->
+                             <img src="images/Front.jpg" alt="Garden on Mountain View" class="w-full h-full object-cover cursor-pointer hover:scale-105 transition-transform duration-700" onclick="openImageModal(this.src)">
+                             <div class="hidden md:block absolute bottom-8 right-8 bg-primary text-white p-6 rounded-xl shadow-xl max-w-xs border border-highlight/30 pointer-events-none">
+                                 <div class="flex items-center gap-3 mb-2">
+                                     <i data-lucide="sparkles" class="w-5 h-5 text-highlight"></i>
+                                     <span class="font-bold text-sm uppercase tracking-wide text-background">Unique Experience</span>
+                                 </div>
+                                 <p class="font-serif text-lg leading-snug">"Spiritual talks available upon request with the religious community."</p>
+                             </div>
+                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="rooms" class="py-16 lg:py-24 bg-background/90 backdrop-blur-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12 lg:mb-16">
+                <span class="text-primary font-bold tracking-wider text-sm uppercase">Accommodation</span>
+                <h2 class="text-3xl md:text-5xl font-serif font-bold text-primary mt-3 mb-4 lg:mb-6">Our Rooms</h2>
+                <p class="text-charcoal text-lg">Clean, peaceful, and comfortable spaces designed for your rest.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Twin Room -->
+                <a href="gallery-twin.html" class="block group bg-white rounded-xl border border-highlight/30 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col cursor-pointer">
+                    <div class="h-56 relative overflow-hidden">
+                         <!-- Using Twin.jpg -->
+                         <img src="images/Twin.jpg" alt="Twin Room" class="w-full h-full object-cover">
+                         <div class="absolute inset-0 bg-primary/0 group-hover:bg-primary/40 transition-colors flex items-center justify-center">
+                            <span class="opacity-0 group-hover:opacity-100 bg-secondary text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-all">View Photos</span>
+                         </div>
+                    </div>
+                    <div class="p-6 lg:p-8 flex-1 flex flex-col">
+                        <h3 class="text-xl font-bold font-serif text-primary mb-2">Twin Room</h3>
+                        <div class="flex items-baseline gap-1 mb-4">
+                            <span class="text-2xl font-bold text-secondary">40,000 RWF</span>
+                            <span class="text-charcoal/60 text-sm">/ night</span>
+                        </div>
+                        <ul class="space-y-2 flex-1 text-charcoal text-sm">
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-primary"></i> Two Beds</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-primary"></i> Spacious Layout</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-primary"></i> Hot Shower</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-primary"></i> Ideal for Friends</li>
+                        </ul>
+                    </div>
+                </a>
+                
+                <!-- Single Room -->
+                <a href="gallery-single.html" class="block order-first md:order-none group bg-white rounded-xl border-2 border-secondary shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col relative transform md:-translate-y-4 ring-4 ring-background cursor-pointer">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-secondary"></div>
+                    <div class="h-56 relative overflow-hidden">
+                         <!-- Using Single.jpg -->
+                         <img src="images/Single.jpg" alt="Single Room" class="w-full h-full object-cover">
+                         <div class="absolute inset-0 bg-primary/0 group-hover:bg-primary/40 transition-colors flex items-center justify-center">
+                            <span class="opacity-0 group-hover:opacity-100 bg-secondary text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-all">View Photos</span>
+                         </div>
+                    </div>
+                    <div class="p-6 lg:p-8 flex-1 flex flex-col">
+                        <h3 class="text-xl font-bold font-serif text-primary mb-2">Single Room</h3>
+                        <div class="flex items-baseline gap-1 mb-4">
+                            <span class="text-2xl font-bold text-secondary">30,000 RWF</span>
+                            <span class="text-charcoal/60 text-sm">/ night</span>
+                        </div>
+                        <ul class="space-y-2 flex-1 text-charcoal text-sm">
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-primary"></i> Single Bed</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-primary"></i> Hot Shower</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-primary"></i> Wi-Fi Access</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-primary"></i> Mountain View Access</li>
+                        </ul>
+                    </div>
+                </a>
+                
+                <!-- VIP Room -->
+                <a href="gallery-vip.html" class="block group bg-white rounded-xl border border-highlight/30 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col cursor-pointer">
+                    <div class="h-56 relative overflow-hidden">
+                         <!-- Using VIP.jpg -->
+                         <img src="images/VIP.jpg" alt="VIP Saloon" class="w-full h-full object-cover">
+                         <div class="absolute inset-0 bg-primary/0 group-hover:bg-primary/40 transition-colors flex items-center justify-center">
+                            <span class="opacity-0 group-hover:opacity-100 bg-secondary text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-all">View Photos</span>
+                         </div>
+                    </div>
+                    <div class="p-6 lg:p-8 flex-1 flex flex-col">
+                        <h3 class="text-xl font-bold font-serif text-primary mb-2">VIP with Saloon</h3>
+                        <div class="flex items-baseline gap-1 mb-4">
+                            <span class="text-2xl font-bold text-secondary">50,000 RWF</span>
+                            <span class="text-charcoal/60 text-sm">/ night</span>
+                        </div>
+                        <ul class="space-y-2 flex-1 text-charcoal text-sm">
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-primary"></i> <strong>Includes TV</strong></li>
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-primary"></i> Private Saloon Area</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-primary"></i> Premium Comfort</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-primary"></i> Hot Shower</li>
+                        </ul>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="facilities" class="py-16 lg:py-24 bg-background/80 backdrop-blur-sm relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+                <div>
+                    <span class="text-primary font-bold tracking-wider text-sm uppercase">Amenities</span>
+                    <h2 class="text-3xl md:text-5xl font-serif font-bold text-primary mt-3 mb-6">Peace of Mind</h2>
+                    <p class="text-charcoal text-lg mb-8">We offer a secure and serene environment suitable for both short stays and religious activities.</p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-6 lg:gap-y-8">
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 w-12 h-12 bg-white rounded-xl flex items-center justify-center text-primary shadow-sm border border-highlight"><i data-lucide="shield" class="w-6 h-6"></i></div>
+                            <div><h4 class="font-bold text-primary">24/7 Security</h4><p class="text-sm text-charcoal mt-1">Full security camera coverage and gated access.</p></div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 w-12 h-12 bg-white rounded-xl flex items-center justify-center text-primary shadow-sm border border-highlight"><i data-lucide="church" class="w-6 h-6"></i></div>
+                            <div><h4 class="font-bold text-primary">Chapel</h4><p class="text-sm text-charcoal mt-1">On-site chapel for prayer and religious activities.</p></div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 w-12 h-12 bg-white rounded-xl flex items-center justify-center text-primary shadow-sm border border-highlight"><i data-lucide="car" class="w-6 h-6"></i></div>
+                            <div><h4 class="font-bold text-primary">Secure Parking</h4><p class="text-sm text-charcoal mt-1">Ample space for guest vehicles within the compound.</p></div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 w-12 h-12 bg-white rounded-xl flex items-center justify-center text-primary shadow-sm border border-highlight"><i data-lucide="wifi" class="w-6 h-6"></i></div>
+                            <div><h4 class="font-bold text-primary">Wi-Fi Access</h4><p class="text-sm text-charcoal mt-1">Stay connected throughout the center.</p></div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 w-12 h-12 bg-white rounded-xl flex items-center justify-center text-primary shadow-sm border border-highlight"><i data-lucide="utensils" class="w-6 h-6"></i></div>
+                            <div><h4 class="font-bold text-primary">Restaurant</h4><p class="text-sm text-charcoal mt-1">Meals available for guests.</p></div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 w-12 h-12 bg-white rounded-xl flex items-center justify-center text-primary shadow-sm border border-highlight"><i data-lucide="droplets" class="w-6 h-6"></i></div>
+                            <div><h4 class="font-bold text-primary">Hot Tub / Shower</h4><p class="text-sm text-charcoal mt-1">Consistent hot water supply for your comfort.</p></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-4 mt-8 lg:mt-0">
+                     <!-- Using chapel.jpg -->
+                     <img src="images/chapel.jpg" alt="Chapel" class="bg-white h-48 lg:h-64 w-full object-cover rounded-2xl shadow-md border-4 border-white cursor-pointer hover:scale-105 transition-transform duration-500" onclick="openImageModal(this.src)">
+                     <!-- Using garden.jpg -->
+                     <img src="images/garden.jpg" alt="Garden" class="bg-white h-48 lg:h-64 w-full object-cover rounded-2xl shadow-md mt-8 border-4 border-white cursor-pointer hover:scale-105 transition-transform duration-500" onclick="openImageModal(this.src)">
+                     <!-- Using restaurant.jpg -->
+                     <img src="images/restaurant.jpg" alt="Restaurant" class="col-span-2 bg-white h-48 lg:h-64 w-full object-cover rounded-2xl shadow-md mt-4 border-4 border-white cursor-pointer hover:scale-105 transition-transform duration-500" onclick="openImageModal(this.src)">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="py-16 lg:py-24 bg-primary/95 backdrop-blur-sm text-white">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 lg:mb-16">
+                <span class="text-highlight font-bold tracking-wider text-sm uppercase">Events & Community</span>
+                <h2 class="text-3xl md:text-4xl font-serif font-bold mt-3">Services Offered</h2>
+            </div>
+            <div class="bg-primary-dark/50 backdrop-blur rounded-3xl overflow-hidden border border-primary-dark">
+                <div class="grid md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-primary-dark">
+                    <div class="p-6 lg:p-8 hover:bg-primary-dark/50 transition-colors">
+                        <div class="flex items-start gap-4">
+                            <div class="bg-primary-dark p-3 rounded-lg text-highlight"><i data-lucide="users" class="w-6 h-6"></i></div>
+                            <div><h4 class="text-xl font-bold mb-2">Events Venue</h4><p class="text-background text-sm mb-2">Perfect for small gatherings and meetings.</p><span class="text-xs uppercase tracking-wider text-highlight font-bold">Max 50 Pax</span></div>
+                        </div>
+                    </div>
+                    <div class="p-6 lg:p-8 hover:bg-primary-dark/50 transition-colors">
+                        <div class="flex items-start gap-4">
+                            <div class="bg-primary-dark p-3 rounded-lg text-highlight"><i data-lucide="party-popper" class="w-6 h-6"></i></div>
+                            <div><h4 class="text-xl font-bold mb-2">Celebrations</h4><p class="text-background text-sm mb-2">Host your special occasions with us.</p><span class="text-xs uppercase tracking-wider text-highlight font-bold">Up to 80 Pax</span></div>
+                        </div>
+                    </div>
+                    <div class="p-6 lg:p-8 hover:bg-primary-dark/50 transition-colors">
+                        <div class="flex items-start gap-4">
+                            <div class="bg-primary-dark p-3 rounded-lg text-highlight"><i data-lucide="presentation" class="w-6 h-6"></i></div>
+                            <div><h4 class="text-xl font-bold mb-2">Conference Room</h4><p class="text-background text-sm mb-2">Equipped space for workshops and seminars.</p><span class="text-xs uppercase tracking-wider text-highlight font-bold">Available for booking</span></div>
+                        </div>
+                    </div>
+                    <div class="p-6 lg:p-8 hover:bg-primary-dark/50 transition-colors">
+                        <div class="flex items-start gap-4">
+                            <div class="bg-primary-dark p-3 rounded-lg text-highlight"><i data-lucide="sparkles" class="w-6 h-6"></i></div>
+                            <div><h4 class="text-xl font-bold mb-2">Spiritual Talk</h4><p class="text-background text-sm mb-2">Religious activities and spiritual guidance.</p><span class="text-xs uppercase tracking-wider text-highlight font-bold">Available upon Request</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW GALLERY SECTION WITH SPECIFIC IMAGES -->
+    <section id="gallery" class="py-16 lg:py-24 bg-background/80 backdrop-blur-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 lg:mb-16">
+                <span class="text-primary font-bold tracking-wider text-sm uppercase">Gallery</span>
+                <h2 class="text-3xl md:text-5xl font-serif font-bold text-primary mt-3">Life at the Centre</h2>
+            </div>
+
+            <div class="relative max-w-6xl mx-auto">
+                <!-- Previous Button -->
+                <button onclick="moveGallery('prev')" class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 lg:-translate-x-12 z-10 bg-primary text-white p-3 rounded-full shadow-lg hover:bg-secondary transition-colors">
+                    <i data-lucide="chevron-left" class="w-6 h-6"></i>
+                </button>
+
+                <!-- Carousel Track Container -->
+                <div class="overflow-hidden px-2">
+                    <div id="gallery-track" class="flex transition-transform duration-500 ease-out">
+                        <!-- 1. Sign -->
+                        <div class="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 p-3">
+                            <div class="bg-white p-2 rounded-xl shadow-md h-64 overflow-hidden group">
+                                <img src="images/sign.jpg" alt="Centre Sign" class="w-full h-full object-cover rounded-lg cursor-pointer hover:scale-105 transition-transform duration-700" onclick="openImageModal(this.src)">
+                            </div>
+                        </div>
+                        <!-- 2. Building -->
+                        <div class="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 p-3">
+                            <div class="bg-white p-2 rounded-xl shadow-md h-64 overflow-hidden group">
+                                <img src="images/building.jpg" alt="Building Exterior" class="w-full h-full object-cover rounded-lg cursor-pointer hover:scale-105 transition-transform duration-700" onclick="openImageModal(this.src)">
+                            </div>
+                        </div>
+                        <!-- 3. Building 2 -->
+                        <div class="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 p-3">
+                            <div class="bg-white p-2 rounded-xl shadow-md h-64 overflow-hidden group">
+                                <img src="images/building2.jpg" alt="Building Exterior 2" class="w-full h-full object-cover rounded-lg cursor-pointer hover:scale-105 transition-transform duration-700" onclick="openImageModal(this.src)">
+                            </div>
+                        </div>
+                        <!-- 4. Hallway -->
+                        <div class="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 p-3">
+                            <div class="bg-white p-2 rounded-xl shadow-md h-64 overflow-hidden group">
+                                <img src="images/hallway.jpg" alt="Hallway" class="w-full h-full object-cover rounded-lg cursor-pointer hover:scale-105 transition-transform duration-700" onclick="openImageModal(this.src)">
+                            </div>
+                        </div>
+                        <!-- 5. Chapel 2 -->
+                        <div class="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 p-3">
+                            <div class="bg-white p-2 rounded-xl shadow-md h-64 overflow-hidden group">
+                                <img src="images/chapel2.jpg" alt="Inside Chapel" class="w-full h-full object-cover rounded-lg cursor-pointer hover:scale-105 transition-transform duration-700" onclick="openImageModal(this.src)">
+                            </div>
+                        </div>
+                        <!-- 6. Restaurant 2 -->
+                        <div class="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 p-3">
+                            <div class="bg-white p-2 rounded-xl shadow-md h-64 overflow-hidden group">
+                                <img src="images/restaurant2.jpg" alt="Restaurant Interior" class="w-full h-full object-cover rounded-lg cursor-pointer hover:scale-105 transition-transform duration-700" onclick="openImageModal(this.src)">
+                            </div>
+                        </div>
+                        <!-- 7. Restaurant 3 -->
+                        <div class="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 p-3">
+                            <div class="bg-white p-2 rounded-xl shadow-md h-64 overflow-hidden group">
+                                <img src="images/restaurant3.jpg" alt="Restaurant Seating" class="w-full h-full object-cover rounded-lg cursor-pointer hover:scale-105 transition-transform duration-700" onclick="openImageModal(this.src)">
+                            </div>
+                        </div>
+                        <!-- 8. Kitchen -->
+                        <div class="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 p-3">
+                            <div class="bg-white p-2 rounded-xl shadow-md h-64 overflow-hidden group">
+                                <img src="images/kitchen.jpg" alt="Kitchen" class="w-full h-full object-cover rounded-lg cursor-pointer hover:scale-105 transition-transform duration-700" onclick="openImageModal(this.src)">
+                            </div>
+                        </div>
+                        <!-- 9. Couch -->
+                        <div class="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 p-3">
+                            <div class="bg-white p-2 rounded-xl shadow-md h-64 overflow-hidden group">
+                                <img src="images/couch.jpg" alt="Lounge Couch" class="w-full h-full object-cover rounded-lg cursor-pointer hover:scale-105 transition-transform duration-700" onclick="openImageModal(this.src)">
+                            </div>
+                        </div>
+                        <!-- 10. Chairs -->
+                        <div class="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 p-3">
+                            <div class="bg-white p-2 rounded-xl shadow-md h-64 overflow-hidden group">
+                                <img src="images/chairs.jpg" alt="Event Chairs" class="w-full h-full object-cover rounded-lg cursor-pointer hover:scale-105 transition-transform duration-700" onclick="openImageModal(this.src)">
+                            </div>
+                        </div>
+                        <!-- 11. Chairs 2 -->
+                        <div class="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 p-3">
+                            <div class="bg-white p-2 rounded-xl shadow-md h-64 overflow-hidden group">
+                                <img src="images/chairs2.jpg" alt="Meeting Setup" class="w-full h-full object-cover rounded-lg cursor-pointer hover:scale-105 transition-transform duration-700" onclick="openImageModal(this.src)">
+                            </div>
+                        </div>
+                        <!-- 12. Chairs 3 -->
+                        <div class="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 p-3">
+                            <div class="bg-white p-2 rounded-xl shadow-md h-64 overflow-hidden group">
+                                <img src="images/chairs3.jpg" alt="Conference Setup" class="w-full h-full object-cover rounded-lg cursor-pointer hover:scale-105 transition-transform duration-700" onclick="openImageModal(this.src)">
+                            </div>
+                        </div>
+                        <!-- 13. Place -->
+                        <div class="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 p-3">
+                            <div class="bg-white p-2 rounded-xl shadow-md h-64 overflow-hidden group">
+                                <img src="images/place.jpg" alt="Place View" class="w-full h-full object-cover rounded-lg cursor-pointer hover:scale-105 transition-transform duration-700" onclick="openImageModal(this.src)">
+                            </div>
+                        </div>
+                        <!-- 14. Place 2 -->
+                        <div class="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 p-3">
+                            <div class="bg-white p-2 rounded-xl shadow-md h-64 overflow-hidden group">
+                                <img src="images/place2.jpg" alt="Place View 2" class="w-full h-full object-cover rounded-lg cursor-pointer hover:scale-105 transition-transform duration-700" onclick="openImageModal(this.src)">
+                            </div>
+                        </div>
+                        <!-- 15. Place 3 -->
+                        <div class="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 p-3">
+                            <div class="bg-white p-2 rounded-xl shadow-md h-64 overflow-hidden group">
+                                <img src="images/place3.jpg" alt="Place View 3" class="w-full h-full object-cover rounded-lg cursor-pointer hover:scale-105 transition-transform duration-700" onclick="openImageModal(this.src)">
+                            </div>
+                        </div>
+                        <!-- 16. Place 4 -->
+                        <div class="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 p-3">
+                            <div class="bg-white p-2 rounded-xl shadow-md h-64 overflow-hidden group">
+                                <img src="images/place4.jpg" alt="Place View 4" class="w-full h-full object-cover rounded-lg cursor-pointer hover:scale-105 transition-transform duration-700" onclick="openImageModal(this.src)">
+                            </div>
+                        </div>
+                        <!-- 17. Place 5 -->
+                        <div class="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 p-3">
+                            <div class="bg-white p-2 rounded-xl shadow-md h-64 overflow-hidden group">
+                                <img src="images/place5.jpg" alt="Place View 5" class="w-full h-full object-cover rounded-lg cursor-pointer hover:scale-105 transition-transform duration-700" onclick="openImageModal(this.src)">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Next Button -->
+                <button onclick="moveGallery('next')" class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 lg:translate-x-12 z-10 bg-primary text-white p-3 rounded-full shadow-lg hover:bg-secondary transition-colors">
+                    <i data-lucide="chevron-right" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-16 lg:py-24 bg-primary/95 backdrop-blur-sm text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-primary-dark/50 rounded-3xl p-8 lg:p-10 border border-primary-dark shadow-sm backdrop-blur">
+                    <div class="text-center mb-10">
+                        <span class="text-highlight font-bold tracking-wider text-sm uppercase">Get In Touch</span>
+                        <h2 class="text-3xl lg:text-4xl font-serif font-bold text-white mt-3">Contact Us</h2>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-8 lg:gap-12">
+                        <div class="space-y-8">
+                            <div class="flex items-start gap-4">
+                                <div class="bg-primary-dark p-3 rounded-full shadow-sm text-highlight border border-primary/30"><i data-lucide="phone" class="w-5 h-5"></i></div>
+                                <div><h4 class="font-bold text-white">Phone</h4><p class="text-background mt-1 font-mono">0795581456</p><p class="text-background font-mono">0784970988</p></div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div class="bg-primary-dark p-3 rounded-full shadow-sm text-highlight border border-primary/30"><i data-lucide="mail" class="w-5 h-5"></i></div>
+                                <div><h4 class="font-bold text-white">Email</h4><p class="text-background mt-1 break-all">kagugucentresaintfrancoiscoll@gmail.com</p></div>
+                            </div>
+                        </div>
+                        <div class="space-y-8">
+                            <div class="flex items-start gap-4">
+                                <div class="bg-primary-dark p-3 rounded-full shadow-sm text-highlight border border-primary/30"><i data-lucide="map-pin" class="w-5 h-5"></i></div>
+                                <div><h4 class="font-bold text-white">Location</h4><p class="text-background mt-1">Kigali City, Gasabo District</p><p class="text-background">Kinyinya Sector, Kagugu Coll</p><p class="text-background font-medium mt-1">Street: KG762 ST</p></div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div class="bg-primary-dark p-3 rounded-full shadow-sm text-highlight border border-primary/30"><i data-lucide="archive" class="w-5 h-5"></i></div>
+                                <div><h4 class="font-bold text-white">P.O. Box</h4><p class="text-background mt-1">1285 Kigali/Rwanda</p></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-primary/95 text-background py-12 border-t border-primary-dark backdrop-blur-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <span class="font-serif font-bold text-xl text-white">Centre St. Francois Coll</span>
+                    <p class="mt-2 text-sm text-background/80">Owned by Sisters Dominican of Anunciata.<br>Providing hospitality and spiritual peace in Kigali.</p>
+                </div>
+                <div class="md:text-right text-sm text-background/80"><p>KG762 ST, Kigali City, Gasabo District</p><p>© 2025 Centre St. Francois Coll. All rights reserved.</p></div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- NEW: Modal HTML Structure -->
+    <div id="image-modal" class="fixed inset-0 z-[60] bg-black/90 hidden flex items-center justify-center p-4 transition-opacity duration-300" onclick="closeImageModal()">
+        <img id="modal-image" src="" alt="Full View" class="max-h-[90vh] max-w-full rounded-lg shadow-2xl object-contain">
+        <button onclick="closeImageModal()" class="absolute top-4 right-4 text-white hover:text-secondary transition-colors">
+            <i data-lucide="x" class="w-10 h-10"></i>
+        </button>
+    </div>
+
+    <script>
+        lucide.createIcons();
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                nav.classList.add('shadow-md');
+                nav.classList.remove('bg-white/95');
+            } else {
+                nav.classList.remove('shadow-md');
+            }
+        });
+
+        function openImageModal(imageSrc) {
+            const modal = document.getElementById('image-modal');
+            const modalImg = document.getElementById('modal-image');
+            modalImg.src = imageSrc;
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeImageModal() {
+            const modal = document.getElementById('image-modal');
+            modal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        // CAROUSEL LOGIC
+        const track = document.getElementById('gallery-track');
+        const totalSlides = 17; // Updated to match 17 images
+        let currentIndex = 0;
+
+        function getVisibleSlides() {
+            if (window.innerWidth >= 1024) return 3; // Desktop
+            if (window.innerWidth >= 768) return 2;  // Tablet
+            return 1; // Mobile
+        }
+
+        function moveGallery(direction) {
+            const visibleSlides = getVisibleSlides();
+            const maxIndex = totalSlides - visibleSlides;
+
+            if (direction === 'next') {
+                currentIndex = currentIndex >= maxIndex ? 0 : currentIndex + 1;
+            } else {
+                currentIndex = currentIndex <= 0 ? maxIndex : currentIndex - 1;
+            }
+
+            // Calculate percentage based on visible slides (e.g., 33.33% for 3 items)
+            const percentage = currentIndex * (100 / visibleSlides);
+            track.style.transform = `translateX(-${percentage}%)`;
+        }
+
+        // Update carousel on resize to reset alignment
+        window.addEventListener('resize', () => {
+            currentIndex = 0;
+            track.style.transform = `translateX(0)`;
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIP with Saloon Gallery | Centre St. Francois Coll</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            DEFAULT: '#003a6c', // Navy Blue
+                            dark: '#002a4d', 
+                        },
+                        secondary: {
+                            DEFAULT: '#2e7d32', // Dark Green
+                            hover: '#1b5e20',   
+                        },
+                        highlight: {
+                            DEFAULT: '#81c784', // Light Green
+                            dim: '#4caf50',
+                        },
+                        background: {
+                            DEFAULT: '#e8f5e9', // Very Light Green/Off-White
+                            dim: '#c8e6c9',
+                        },
+                        charcoal: {
+                            DEFAULT: '#2c2c2c', // Main text
+                            light: '#4a4a4a',
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Work Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        html { scroll-behavior: smooth; }
+        .fade-in { animation: fadeIn 1s ease-out; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #e8f5e9; }
+        ::-webkit-scrollbar-thumb { background: #003a6c; border-radius: 4px; }
+    </style>
+</head>
+<body class="bg-background text-charcoal font-sans antialiased">
+
+    <nav class="fixed w-full bg-primary border-b border-primary-dark z-50 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-24">
+                <a href="Homepage.html" class="flex items-center gap-3 group">
+                    <div class="w-12 h-12 bg-white text-primary flex items-center justify-center rounded-lg group-hover:bg-secondary group-hover:text-white transition-colors shadow-md">
+                        <span class="font-serif font-bold text-2xl">SF</span>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="font-serif font-bold text-lg tracking-tight text-white leading-tight">Centre St. Francois Coll</span>
+                        <span class="text-[10px] uppercase tracking-wider text-highlight font-medium">Sisters Dominican of Anunciata</span>
+                    </div>
+                </a>
+
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="Homepage.html" class="text-background hover:text-highlight font-medium transition-colors">Home</a>
+                    <a href="Homepage.html#rooms" class="text-background hover:text-highlight font-medium transition-colors">Rooms</a>
+                    <a href="Homepage.html#facilities" class="text-background hover:text-highlight font-medium transition-colors">Facilities</a>
+                    <a href="Homepage.html#contact" class="text-background hover:text-highlight font-medium transition-colors">Contact</a>
+                </div>
+
+                <div class="md:hidden">
+                    <button onclick="toggleMobileMenu()" class="text-white hover:text-highlight p-2 focus:outline-none">
+                        <i data-lucide="menu" class="w-8 h-8"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <div id="mobile-menu" class="hidden md:hidden bg-primary border-t border-primary-dark absolute w-full shadow-2xl h-screen overflow-y-auto">
+            <div class="px-4 pt-4 pb-20 space-y-2">
+                <a href="Homepage.html" class="block px-4 py-4 text-lg text-background border-b border-primary-dark hover:bg-primary-dark hover:text-highlight font-medium">Home</a>
+                <a href="Homepage.html#rooms" class="block px-4 py-4 text-lg text-background border-b border-primary-dark hover:bg-primary-dark hover:text-highlight font-medium">Rooms</a>
+                <a href="Homepage.html#contact" class="block px-4 py-4 text-lg text-background border-b border-primary-dark hover:bg-primary-dark hover:text-highlight font-medium">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="pt-32 pb-12 bg-background border-b border-highlight/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
+                <div>
+                    <a href="Homepage.html#rooms" class="inline-flex items-center gap-2 text-charcoal/60 hover:text-secondary mb-4 transition-colors text-sm font-medium">
+                        <i data-lucide="arrow-left" class="w-4 h-4"></i> Back to all rooms
+                    </a>
+                    <h1 class="text-4xl md:text-5xl font-serif font-bold text-primary">VIP with Saloon</h1>
+                    <p class="text-charcoal text-lg mt-2 max-w-xl">A premium suite featuring a private lounge area, TV, and superior comfort.</p>
+                </div>
+                <div class="text-left md:text-right">
+                    <span class="block text-charcoal/60 text-sm font-medium uppercase tracking-wider mb-1">Nightly Rate</span>
+                    <span class="text-3xl font-bold text-secondary">50,000 RWF</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="py-12 bg-white min-h-screen">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-3 gap-8 lg:gap-12">
+                
+                <div class="lg:col-span-2 space-y-6 fade-in">
+                    
+                    <div class="rounded-2xl overflow-hidden shadow-lg border border-primary/10 group h-[450px] cursor-pointer relative">
+                        <img 
+                            src="images/VIP.jpg" 
+                            onclick="openModal(this.src)" 
+                            alt="VIP Room Main View" 
+                            class="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+                        >
+                        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors pointer-events-none flex items-center justify-center">
+                            <i data-lucide="zoom-in" class="w-16 h-16 text-white opacity-0 group-hover:opacity-80 transition-opacity drop-shadow-lg"></i>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-3 gap-4">
+                        
+                        <div class="rounded-xl overflow-hidden shadow-md border border-primary/10 group h-40 md:h-48 cursor-pointer relative">
+                            <img 
+                                src="images/VIP1.jpg" 
+                                onclick="openModal(this.src)" 
+                                alt="VIP View 1" 
+                                class="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+                            >
+                            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors pointer-events-none flex items-center justify-center">
+                                <i data-lucide="zoom-in" class="w-8 h-8 text-white opacity-0 group-hover:opacity-80 transition-opacity drop-shadow-lg"></i>
+                            </div>
+                        </div>
+
+                        <div class="rounded-xl overflow-hidden shadow-md border border-primary/10 group h-40 md:h-48 cursor-pointer relative">
+                            <img 
+                                src="images/VIP2.jpg" 
+                                onclick="openModal(this.src)" 
+                                alt="VIP View 2" 
+                                class="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+                            >
+                            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors pointer-events-none flex items-center justify-center">
+                                <i data-lucide="zoom-in" class="w-8 h-8 text-white opacity-0 group-hover:opacity-80 transition-opacity drop-shadow-lg"></i>
+                            </div>
+                        </div>
+
+                        <div class="rounded-xl overflow-hidden shadow-md border border-primary/10 group h-40 md:h-48 cursor-pointer relative">
+                             <img 
+                                src="images/bathroomvip.jpg" 
+                                onclick="openModal(this.src)" 
+                                alt="VIP Bathroom" 
+                                class="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+                            >
+                            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors pointer-events-none flex items-center justify-center">
+                                <i data-lucide="zoom-in" class="w-8 h-8 text-white opacity-0 group-hover:opacity-80 transition-opacity drop-shadow-lg"></i>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+
+                <div class="lg:col-span-1">
+                    <div class="bg-background rounded-2xl p-8 border border-highlight/30 shadow-sm sticky top-28">
+                        <h3 class="text-2xl font-serif font-bold text-primary mb-6">VIP Amenities</h3>
+                        
+                        <div class="space-y-4">
+                            <div class="flex items-center gap-3 text-charcoal">
+                                <div class="w-8 h-8 rounded-full bg-white flex items-center justify-center shadow-sm text-secondary border border-secondary/20">
+                                    <i data-lucide="sofa" class="w-4 h-4"></i>
+                                </div>
+                                <span class="font-medium">Private Saloon Area</span>
+                            </div>
+
+                            <div class="flex items-center gap-3 text-charcoal">
+                                <div class="w-8 h-8 rounded-full bg-white flex items-center justify-center shadow-sm text-secondary border border-secondary/20">
+                                    <i data-lucide="tv" class="w-4 h-4"></i>
+                                </div>
+                                <span class="font-medium">Television</span>
+                            </div>
+                            
+                            <div class="flex items-center gap-3 text-charcoal">
+                                <div class="w-8 h-8 rounded-full bg-white flex items-center justify-center shadow-sm text-secondary border border-secondary/20">
+                                    <i data-lucide="bed-double" class="w-4 h-4"></i>
+                                </div>
+                                <span class="font-medium">Premium Comfort Bed</span>
+                            </div>
+                            
+                            <div class="flex items-center gap-3 text-charcoal">
+                                <div class="w-8 h-8 rounded-full bg-white flex items-center justify-center shadow-sm text-secondary border border-secondary/20">
+                                    <i data-lucide="wifi" class="w-4 h-4"></i>
+                                </div>
+                                <span class="font-medium">Free High-Speed Wi-Fi</span>
+                            </div>
+
+                            <div class="flex items-center gap-3 text-charcoal">
+                                <div class="w-8 h-8 rounded-full bg-white flex items-center justify-center shadow-sm text-secondary border border-secondary/20">
+                                    <i data-lucide="droplets" class="w-4 h-4"></i>
+                                </div>
+                                <span class="font-medium">Hot Shower</span>
+                            </div>
+
+                            <div class="flex items-center gap-3 text-charcoal">
+                                <div class="w-8 h-8 rounded-full bg-white flex items-center justify-center shadow-sm text-secondary border border-secondary/20">
+                                    <i data-lucide="mountain" class="w-4 h-4"></i>
+                                </div>
+                                <span class="font-medium">Mountain View Access</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-primary text-background py-12 border-t border-primary-dark">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <span class="font-serif font-bold text-xl text-white">Centre St. Francois Coll</span>
+                    <p class="mt-2 text-sm text-background/80">
+                        Owned by Sisters Dominican of Anunciata.<br>
+                        Providing hospitality and spiritual peace in Kigali.
+                    </p>
+                </div>
+                <div class="md:text-right text-sm text-background/80">
+                    <p>KG762 ST, Kigali City, Gasabo District</p>
+                    <p>© 2025 Centre St. Francois Coll. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div id="imageModal" class="fixed inset-0 z-[100] hidden bg-black/90 backdrop-blur-sm flex items-center justify-center p-4 transition-opacity duration-300" onclick="closeModal()">
+        <button onclick="closeModal()" class="absolute top-6 right-6 text-white hover:text-highlight transition-colors">
+            <i data-lucide="x" class="w-10 h-10"></i>
+        </button>
+        <div class="relative max-w-5xl w-full h-full max-h-[90vh] flex items-center justify-center">
+            <img id="modalImage" src="" alt="Full View" class="max-w-full max-h-full object-contain rounded-lg shadow-2xl border-2 border-white/20">
+        </div>
+    </div>
+
+    <script>
+        lucide.createIcons();
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                nav.classList.add('shadow-md');
+            } else {
+                nav.classList.remove('shadow-md');
+            }
+        });
+
+        // IMAGE MODAL LOGIC
+        function openModal(imageSrc) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            modalImg.src = imageSrc;
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('imageModal');
+            modal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>
